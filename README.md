@@ -1,2 +1,2 @@
-# odin-react-eslint-prettier
-Blank template for eslint, prettier, and react. Clone this when you want to make a new project
+# Odin Where's Waldo?
+Odin Project Where's Waldo with firebase support for scores
