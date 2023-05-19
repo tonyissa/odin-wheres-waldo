@@ -33,7 +33,8 @@ body {
 #img-container {
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: .75rem;
+    text-align: center;
 }
 
 .window button {
@@ -41,6 +42,17 @@ body {
 }
 
 .window img {
-    width: 100px;
-    height: 125px;
+    height: 7.8125rem;
+    width: auto;
+}
+
+#game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 7.5rem;
+}
+
+#game img {
+    cursor: url("../assets/Crosshairs_Red.svg.png") 16 16, auto;
 }
