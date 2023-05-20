@@ -56,3 +56,19 @@ body {
 #game img {
     cursor: url("../assets/Crosshairs_Red.svg.png") 16 16, auto;
 }
+
+.pop-up {
+    top: -20rem;
+    height: 20rem;
+    width: 25rem;
+    left: 50%;
+    position: absolute;
+    transition: .5s;
+    background-color: rgb(99, 172, 228);
+    margin-left: -12.5rem;
+    margin-top: -10rem;
+}
+
+.active {
+    top: 50%;
+}
