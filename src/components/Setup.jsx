@@ -1,16 +1,10 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect } from 'react';
+import React from 'react';
 import Frost from '../assets/Jack_Frost_SMTV_Art.webp';
 import Slime from '../assets/Slime.webp';
 import Chatterskull from '../assets/Chatterskull.webp';
 
 export default function Setup(props) {
-
-    useEffect(() => {
-        if (props.popup === true) {
-            setTimeout(() => document.querySelector('.pop-up').classList.add('active'), 25);
-        }
-    }, []);
 
     function returnImg() {
         if (props.round === 1) {
@@ -31,7 +25,6 @@ export default function Setup(props) {
     }
 
     return <>
-        <div className='pop-up'></div>
         <div className="window">
             <div id="ready">{returnReady()}</div>
             <div id="img-container">
