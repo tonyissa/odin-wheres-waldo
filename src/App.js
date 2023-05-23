@@ -29,6 +29,7 @@ export default function App() {
   function restartTimer() {
     document.querySelector('.pop-up').classList.remove('active');
     setLeaderboard(false);
+    scores.length = 0;
     time = 0;
     timer = setInterval(countUp, 100);
   }

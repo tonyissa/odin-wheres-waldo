@@ -20,7 +20,6 @@ export const colRef = collection(db, 'leaderboard');
 export const scores = [];
 
 export function getScores() {
-    scores.length = 0;
     getDocs(colRef).then((snapshot) => {
         snapshot.docs.forEach(doc => {
             scores.push({ ...doc.data(), id: doc.id });
