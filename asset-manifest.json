@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.fb4e27b3.css",
+    "main.js": "/static/js/main.ac07d445.js",
+    "static/media/collage.jpg": "/static/media/collage.49e89ac8809e28b61b25.jpg",
+    "static/media/Chatterskull.webp": "/static/media/Chatterskull.6c5801dcda6a30227bb8.webp",
+    "static/media/Jack_Frost_SMTV_Art.webp": "/static/media/Jack_Frost_SMTV_Art.f811d2bf1727c23f2325.webp",
+    "static/media/Slime.webp": "/static/media/Slime.be1146d470b9236ee526.webp",
+    "index.html": "/index.html",
+    "main.fb4e27b3.css.map": "/static/css/main.fb4e27b3.css.map",
+    "main.ac07d445.js.map": "/static/js/main.ac07d445.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fb4e27b3.css",
+    "static/js/main.ac07d445.js"
+  ]
+}
