@@ -17,15 +17,15 @@ const db = getFirestore(app);
 
 export const colRef = collection(db, 'leaderboard');
 
-export const Scores = [];
+export const scores = [];
 
 export function getScores() {
-    Scores.length = 0;
+    scores.length = 0;
     getDocs(colRef).then((snapshot) => {
         snapshot.docs.forEach(doc => {
-            Scores.push({ ...doc.data() });
+            scores.push({ ...doc.data(), id: doc.id });
         });
-        Scores.sort((a, b) => a.time - b.time).splice(5);
+        scores.sort((a, b) => a.time - b.time).splice(5);
     }).catch(err => {
         console.log(err.message);
     });
