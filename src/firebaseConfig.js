@@ -17,6 +17,20 @@ const db = getFirestore(app);
 
 const colRef = collection(db, 'leaderboard');
 
-getDocs(colRef).then((snapshot) => {
-    console.log(snapshot.docs);
-});
+export const Scores = [];
+
+async function getScores() {
+    Scores.length = 0;
+    getDocs(colRef).then((snapshot) => {
+        snapshot.docs.forEach(doc => {
+            Scores.push({ ...doc.data() });
+        });
+        // Scores.sort((a, b) => b - a).splice(4);
+    }).catch(err => {
+        console.log(err.message);
+    });
+}
+
+getScores();
+
+export default app;

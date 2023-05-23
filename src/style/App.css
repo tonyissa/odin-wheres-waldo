@@ -67,14 +67,15 @@ body {
     background-color: rgb(244, 245, 247);
     margin-left: -12.5rem;
     margin-top: -10rem;
-    padding: 3rem;
+    padding: 2.5rem;
     text-align: center;
     font-size: 1.25rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    border: 2px solid black;
+    border: 2px solid rgb(0, 0, 0);
     box-shadow: 1px 1px 2px 2px rgb(244, 241, 241);
+    border-radius: 12px;
 }
 
 .active {
@@ -109,4 +110,37 @@ body {
 
 #form > input {
     width: 15rem;
+}
+
+#leaderboard {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+#tagline {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+#table {
+    font-size: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    flex: 1;
+    width: 100%;
+}
+
+.item {
+    display: grid;
+    grid-template-columns: 1fr 5fr 2fr;
+}
+
+#leaderboard > button {
+    width: 10rem;
 }
