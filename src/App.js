@@ -4,7 +4,6 @@ import Setup from './components/Setup';
 import Game from './components/Game';
 import Dropdown from './components/Dropdown';
 import Leaderboard from './components/Leaderboard';
-import './firebaseConfig';
 
 let time = 0;
 let timer = setInterval(countUp, 100);
@@ -22,12 +21,13 @@ export default function App() {
   const [round, setRound] = useState(1);
   const [leaderboard, setLeaderboard] = useState(false);
 
-  function setLeaderBoardStatus(x) {
-    setLeaderboard(x);
+  function toggleLeaderBoard() {
+    setLeaderboard(true);
   }
 
   function restartTimer() {
     document.querySelector('.pop-up').classList.remove('active');
+    setLeaderboard(false);
     time = 0;
     timer = setInterval(countUp, 100);
   }
@@ -53,8 +53,8 @@ export default function App() {
   return (
     <div id='app'>
       <div className='pop-up'>
-        {leaderboard ? <Leaderboard restartTimer={restartTimer} scoreTime={scoreTime} /> : 
-        <Dropdown time={time} restartTimer={restartTimer} setLeaderBoardStatus={setLeaderBoardStatus} scoreTime={scoreTime} />}
+        {leaderboard ? <Leaderboard restartTimer={restartTimer} time={time} scoreTime={scoreTime} /> : 
+        <Dropdown time={time} restartTimer={restartTimer} toggleLeaderBoard={toggleLeaderBoard} scoreTime={scoreTime} />}
       </div>
       {state === 'setup' ? <Setup nextState={nextState} round={round} /> : 
       <Game nextState={nextState} round={round} />}

@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { addDoc } from 'firebase/firestore';
+import { colRef, getScores } from '../firebaseConfig';
 
 export default function Dropdown(props) {
 
@@ -7,7 +9,15 @@ export default function Dropdown(props) {
         if (e.target.id === 'again') {
             props.restartTimer();
         } else {
-            props.setLeaderBoardStatus(true);
+            const submitScore = document.querySelector('#name');
+            addDoc(colRef, {
+                name: submitScore.value,
+                time: props.time
+            }).then(getScores())
+            .then(() => {
+                submitScore.value = '';
+                props.toggleLeaderBoard();
+            });
         }
     }
 

@@ -15,22 +15,20 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-const colRef = collection(db, 'leaderboard');
+export const colRef = collection(db, 'leaderboard');
 
 export const Scores = [];
 
-async function getScores() {
+export function getScores() {
     Scores.length = 0;
     getDocs(colRef).then((snapshot) => {
         snapshot.docs.forEach(doc => {
             Scores.push({ ...doc.data() });
         });
-        // Scores.sort((a, b) => b - a).splice(4);
+        Scores.sort((a, b) => a.time - b.time).splice(5);
     }).catch(err => {
         console.log(err.message);
     });
 }
-
-getScores();
 
 export default app;
