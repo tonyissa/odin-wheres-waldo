@@ -8,9 +8,9 @@ export default function Leaderboard(props) {
             return <div className='item' key={item.id}>
                 <div>{index + 1}</div>
                 <div>{item.name}</div>
-                <div>{props.scoreTime(item.time)}</div>
+                <div></div>
             </div>;
         })}</div>
-        <button onClick={props.restartTimer}>Restart</button>
+        <button>Restart</button>
     </div>;
 }

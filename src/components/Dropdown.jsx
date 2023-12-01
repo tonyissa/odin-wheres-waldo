@@ -3,31 +3,15 @@ import React from 'react';
 
 export default function Dropdown(props) {
 
-    function handleClick(e) {
-        if (e.target.id === 'again') {
-            props.restartTimer();
-        } else {
-            const submitScore = document.querySelector('#name');
-            addDoc(colRef, {
-                name: submitScore.value,
-                time: props.time
-            }).then(getScores())
-            .then(() => {
-                submitScore.value = '';
-                props.toggleLeaderBoard();
-            });
-        }
-    }
-
     return <>
-        <div><b>Nice!</b> You finished in {props.time.toFixed(2)} seconds for a total of {props.scoreTime(props.time)} points!</div>
+        <div><b>Nice!</b> You finished in ___ seconds for a total of ___ points!</div>
         <div id="form">
             <label htmlFor="name">Name:</label>
             <input id="name" type='text' />
         </div>
         <div id='button-container'>
-            <button onClick={handleClick}>Submit score</button>
-            <button id="again" onClick={handleClick}>Start again</button>
+            <button>Submit score</button>
+            <button id="again">Start again</button>
         </div>
     </>;
 }

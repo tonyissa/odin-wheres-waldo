@@ -21,7 +21,13 @@ export default function Setup(props) {
     }
 
     function returnText() {
-        return props.round === 1 ? 'Find this lil fella:' : 'Now find this absolute lad:';
+            if (props.round === 1) {
+                return 'Find this lil fella:';
+            } else if (props.round === 2) {
+                return 'Now find this good lad:';
+            } else {
+                return 'Finally find this absolute goofball:';
+            }
     }
 
     return <>
