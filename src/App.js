@@ -4,7 +4,6 @@ import Setup from './components/Setup';
 import Game from './components/Game';
 import Dropdown from './components/Dropdown';
 import Leaderboard from './components/Leaderboard';
-import { scores } from './firebaseConfig';
 
 let time = 0;
 let timer = setInterval(countUp, 100);
@@ -49,7 +48,7 @@ export default function App() {
   }
 
   function scoreTime(x) {
-    return Math.floor(1000 - 25 * x); 
+    return Math.floor(10000 - 25 * x); 
 }
 
   return (

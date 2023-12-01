@@ -1,7 +1,5 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { addDoc } from 'firebase/firestore';
-import { colRef, getScores } from '../firebaseConfig';
 
 export default function Dropdown(props) {
 
