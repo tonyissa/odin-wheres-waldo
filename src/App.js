@@ -10,6 +10,11 @@ export default function App() {
   const [round, setRound] = useState(1);
   const [leaderboard, setLeaderboard] = useState(false);
   const [time, setTime] = useState(null);
+  const [selected, setSelected] = useState({
+    frost: false,
+    slime: false,
+    chatterskull: false
+  });
 
   function toggleLeaderBoard() {
     setLeaderboard(!leaderboard);
@@ -40,11 +45,11 @@ export default function App() {
   return (
     <div id='app'>
       <div className='pop-up'>
-        {leaderboard ? <Leaderboard nextState={nextState} /> : 
-        <Dropdown toggleLeaderBoard={toggleLeaderBoard} time={time} nextState={nextState} getScore={getScore} />}
+        { leaderboard ? <Leaderboard nextState={nextState} /> : 
+        <Dropdown toggleLeaderBoard={toggleLeaderBoard} time={time} nextState={nextState} getScore={getScore} /> }
       </div>
-      {state === 'setup' ? <Setup nextState={nextState} round={round} /> : 
-      <Game nextState={nextState} round={round} />}
+      { state === 'setup' ? <Setup nextState={nextState} round={round} selected={selected} /> : 
+      <Game nextState={nextState} round={round} setSelected={setSelected} /> }
     </div>
   );
 }
