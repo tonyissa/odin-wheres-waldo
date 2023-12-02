@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
+import LeaderBoardComponent from './Leaderboard';
 
-export default function Dropdown({ toggleLeaderboard, time, nextState, getScore }) {
+export default function Dropdown({ leaderBoard, toggleLeaderboard, time, nextState }) {
     const [name, setName] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -26,8 +27,12 @@ export default function Dropdown({ toggleLeaderboard, time, nextState, getScore 
         }
     }
 
+    if (leaderBoard) {
+        return <LeaderBoardComponent />;
+    }
+
     return <>
-        <div><b>Nice!</b> You finished in {time} seconds for a total of {getScore()} points!</div>
+        <div><b>Nice!</b> You finished in {time} seconds!</div>
         <div id="form">
             <label htmlFor="name">Name:</label>
             <input id="name" type='text' onChange={e => setName(e.target.value)} />
