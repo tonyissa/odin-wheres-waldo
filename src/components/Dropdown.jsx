@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import LeaderBoardComponent from './Leaderboard';
 
-export default function Dropdown({ leaderBoard, toggleLeaderboard, time, nextState }) {
+export default function Dropdown({ leaderboard, toggleLeaderboard, time, resetGame }) {
     const [name, setName] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -11,23 +11,27 @@ export default function Dropdown({ leaderBoard, toggleLeaderboard, time, nextSta
         try {
             setLoading(true);
             setError(null);
-            const response = await fetch('', {
+            const response = await fetch('http://localhost:3000/api/upload-score', {
                 mode: 'cors',
                 method: 'post',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
                 body: JSON.stringify({ name, time })
             });
             setLoading(false);
             if (response.status === 200) {
                 toggleLeaderboard();
             } else {
-                setError('Request failed. Please try again.');
+                const parsedJSON = await response.json();
+                setError(parsedJSON.error);
             }
         } catch (err) {
             console.error(err);
         }
     }
 
-    if (leaderBoard) {
+    if (leaderboard) {
         return <LeaderBoardComponent />;
     }
 
@@ -39,7 +43,8 @@ export default function Dropdown({ leaderBoard, toggleLeaderboard, time, nextSta
         </div>
         <div id='button-container'>
             <button onClick={handleSubmit} disabled={loading}>Submit score</button>
-            <button id="again" onClick={nextState} disabled={loading}>Start again</button>
+            <button onClick={toggleLeaderboard} disabled={loading}>Leaderboards</button>
+            <button id="again" onClick={resetGame} disabled={loading}>Start again</button>
         </div>
         <div className='error-text'>{error}</div>
     </>;

@@ -8,7 +8,7 @@ export default function App() {
   const [game, setGame] = useState(false);
   const [round, setRound] = useState(1);
   const [modal, setModal] = useState(false);
-  const [leaderBoard, setLeaderBoard] = useState(false);
+  const [leaderboard, setLeaderboard] = useState(false);
   const [time, setTime] = useState(null);
   const [selected, setSelected] = useState({
     frost: false,
@@ -16,8 +16,8 @@ export default function App() {
     chatterskull: false
   });
 
-  function toggleLeaderBoard() {
-    setLeaderBoard(!leaderBoard);
+  function toggleLeaderboard() {
+    setLeaderboard(!leaderboard);
   }
 
   function nextState() {
@@ -38,14 +38,13 @@ export default function App() {
 
   function resetGame() {
     setRound(1);
-    toggleLeaderBoard();
     setModal(false);
   }
 
   return (
     <div id='app'>
       <div className={'pop-up' + ' ' + (modal ? 'active' : '')}>
-        <Dropdown leaderBoard={leaderBoard} toggleLeaderBoard={toggleLeaderBoard} time={time} nextState={nextState} resetGame={resetGame} />
+        <Dropdown leaderboard={leaderboard} toggleLeaderboard={toggleLeaderboard} time={time} resetGame={resetGame} />
       </div>
       { !game ? <Setup nextState={nextState} round={round} selected={selected} /> : 
       <Game nextState={nextState} round={round} setSelected={setSelected} /> }
