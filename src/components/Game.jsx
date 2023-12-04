@@ -38,8 +38,5 @@ export default function Game({ nextState, setSelected, selected, setError }) {
 
     return <div id="game">
         <img src={collage} onClick={handleClick} />
-        <div id='frost-box'>
-            <div className="box-mask"></div>
-        </div>
     </div>;
 }

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import LeaderBoardComponent from './Leaderboard';
+import LeaderboardComponent from './Leaderboard';
 
 export default function Dropdown({ leaderboard, toggleLeaderboard, time, resetGame }) {
     const [name, setName] = useState('');
@@ -32,7 +32,7 @@ export default function Dropdown({ leaderboard, toggleLeaderboard, time, resetGa
     }
 
     if (leaderboard) {
-        return <LeaderBoardComponent />;
+        return <LeaderboardComponent resetGame={resetGame} toggleLeaderboard={toggleLeaderboard} />;
     }
 
     return <>
