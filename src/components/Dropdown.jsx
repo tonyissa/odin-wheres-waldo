@@ -23,8 +23,8 @@ export default function Dropdown({ leaderboard, toggleLeaderboard, time, resetGa
             if (response.status === 200) {
                 toggleLeaderboard();
             } else {
-                const parsedJSON = await response.json();
-                setError(parsedJSON.error);
+                const parsed = await response.json();
+                setError(parsed.error);
             }
         } catch (err) {
             console.error(err);

@@ -10,10 +10,12 @@ export default function App() {
   const [modal, setModal] = useState(false);
   const [leaderboard, setLeaderboard] = useState(false);
   const [time, setTime] = useState(null);
+  const [error, setError] = useState('');
+
   const [selected, setSelected] = useState({
     frost: false,
     slime: false,
-    chatterskull: false
+    skull: false
   });
 
   function toggleLeaderboard() {
@@ -21,6 +23,7 @@ export default function App() {
   }
 
   function nextState() {
+    setError('');
     if (!game && round === 1) {
       setTime(Date.now());
       setGame(true);
@@ -39,6 +42,11 @@ export default function App() {
   function resetGame() {
     setRound(1);
     setModal(false);
+    setSelected({
+      frost: false,
+      slime: false,
+      skull: false
+    });
   }
 
   return (
@@ -47,7 +55,8 @@ export default function App() {
         <Dropdown leaderboard={leaderboard} toggleLeaderboard={toggleLeaderboard} time={time} resetGame={resetGame} />
       </div>
       { !game ? <Setup nextState={nextState} round={round} selected={selected} /> : 
-      <Game nextState={nextState} round={round} setSelected={setSelected} /> }
+      <Game nextState={nextState} setSelected={setSelected} selected={selected} setError={setError} /> }
+      <div className='error-text'>{error}</div>
     </div>
   );
 }
